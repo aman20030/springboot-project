@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Product Register Page</title>
+</head>
+<style>/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form container styling */
+form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Form labels and input fields */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Styling for the submit button */
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Select styling */
+select {
+    background-color: white;
+    font-size: 16px;
+}
+
+/* Add some spacing between form elements */
+form pre {
+    margin: 0;
+}
+
+/* Optional: Add a responsive design (for mobile) */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+</style>
+<body>
+<h1>Product Register Page</h1>
+
+<form th:action="@{/product/save}" method="post">
+		<pre>
+	Name:<input type="text" name="name">
+	Desc: <input type="text" name="description">
+	Price:<input type="text" name="price">
+	Vender: <select name="vendor">
+			<option value="">-Select-</option>
+			<option value="Emp">Emp</option>
+			<option value="Dep">Dep</option>
+			<option value="Hr">Hr</option>
+	</select>
+	<input type="submit" value="Create">
+	</pre>
+</form>
+</body>
+</html>

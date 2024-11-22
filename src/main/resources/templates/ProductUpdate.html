@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+</head>
+ <style>
+ /* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Form container styling */
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Label and input fields */
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+/* Styling for text and number input fields */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Styling for the submit button */
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the submit button */
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Add spacing for line breaks (avoid extra vertical spacing) */
+form br {
+    display: none; /* Hides line breaks */
+}
+
+/* Optional: Add a responsive design (for mobile) */
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+ 
+ </style>
+<body>
+<h1>Update Product</h1>
+
+<form th:action="@{/product/update}" th:object="${product}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="name">Product Name:</label>
+    <input type="text" id="name" th:field="*{name}" /><br><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" th:field="*{description}" /><br><br>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" th:field="*{price}" /><br><br>
+
+    <label for="vendor">Vendor:</label>
+    <input type="text" id="vendor" th:field="*{vendor}" /><br><br>
+
+    <button type="submit">Update Product</button>
+</form>
+
+</body>
+</html>
